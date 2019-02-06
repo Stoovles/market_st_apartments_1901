@@ -21,28 +21,15 @@ class Building
     end
     avg_rent = avg_rent/@units.count.to_f
   end
+
+  def renter_with_highest_rent
+    occupied_units = @units.find_all do |apartment|
+      apartment.renter != nil
+    end
+    highest_rent = occupied_units.max_by do |apartment|
+      apartment.monthly_rent
+    end
+    return highest_rent.renter
+  end
+
 end
-
-
-
-# pry(main)> building = Building.new
-# # => #<Building:0x00007f83778c5a80...>
-#
-# pry(main)> building.units
-# # => []
-#
-# pry(main)> a1 = Apartment.new({number: "A1", monthly_rent: 1200, bathrooms: 1, bedrooms: 1})
-# # => #<Apartment:0x00007f8377209bb0...>
-#
-# pry(main)> b2 = Apartment.new({number: "B2", monthly_rent: 999, bathrooms: 2, bedrooms: 2})
-# # => #<Apartment:0x00007f83779f0900...>
-#
-# pry(main)> building.add_unit(a1)
-#
-# pry(main)> building.add_unit(b2)
-#
-# pry(main)> building.units
-# # => [#<Apartment:0x00007f8377209bb0...>, #<Apartment:0x00007f83779f0900...>]
-#
-# pry(main)> building.average_rent
-# # => 1099.5
