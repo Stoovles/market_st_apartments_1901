@@ -32,4 +32,16 @@ class Building
     return highest_rent.renter
   end
 
+  # def annual_breakdown
+  #   break_down = {}
+  #   occupied_units = @units.find_all do |apartment|
+  #     apartment.renter != nil
+  #   end
+  #   break_down = occupied_units.each do |k,v|
+  #     instance_variable_set("#{k.renter.name}", v.monthly_rent * 12) unless v.nil?
+  #   end
+  #   #populate keys with occupied_units.renter.name
+  #   #populate values with renter.monthly_rent * 12
+  # end
+
 end
