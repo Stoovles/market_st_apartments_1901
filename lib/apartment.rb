@@ -5,7 +5,7 @@ class Apartment
 
 
   def initialize(args)
-    args.each do |k,v|
+    args.each do |k,v| #was stuck on how to use hashes in initialize for about an hour...
       instance_variable_set("@#{k}", v) unless v.nil?
     end
   end

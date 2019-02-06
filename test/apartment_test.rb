@@ -32,4 +32,5 @@ class ApartmentTest < Minitest::Test
     assert_equal jessie, a1.renter
   end
 
+
 end
